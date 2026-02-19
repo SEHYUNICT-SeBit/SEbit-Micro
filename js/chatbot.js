@@ -143,6 +143,17 @@
         handleSend();
       }
     });
+
+    // 상세 문의하기 클릭 → 챗봇 닫고 Contact US로 이동
+    messagesContainer.addEventListener("click", function (e) {
+      if (e.target.closest(".sebit-contact-link")) {
+        toggleChat();
+        var contactSection = document.getElementById("ContactUS");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
   }
 
   function toggleChat() {
@@ -291,7 +302,7 @@
     saveMessages();
   }
 
-  var BADGE_HTML = '<div style="margin-top:8px;"><a href="/#ContactUS" style="display:inline-block;background:#48c5ff;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;text-decoration:none;cursor:pointer;">&#x1F4E9; 상세 문의하기</a></div>';
+  var BADGE_HTML = '<div style="margin-top:8px;"><button class="sebit-contact-link" style="display:inline-block;background:#48c5ff;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;text-decoration:none;cursor:pointer;border:none;font-family:inherit;">&#x1F4E9; 상세 문의하기</button></div>';
 
   // 텍스트를 안전한 HTML로 변환 + 모든 봇 답변 끝에 배지 자동 추가
   function linkify(text) {
