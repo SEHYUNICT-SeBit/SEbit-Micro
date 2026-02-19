@@ -180,7 +180,7 @@ function submitContactForm() {
   }
 
   // 문의유형 라벨 매핑
-  var typeLabels = { "1": "SEbit AI 문의", "2": "SEbit LUMO 문의", "3": "SEbit GeoNexus 문의", "4": "기타 문의" };
+  var typeLabels = { "1": "SEbit AI 문의", "2": "SEbit LUMO 문의", "3": "SEbit GeoAxis 문의", "4": "기타 문의" };
   var typeLabel = typeLabels[type1.value] || "문의";
   var fullEmail = email.value.trim() + "@" + email2.value.trim();
 
