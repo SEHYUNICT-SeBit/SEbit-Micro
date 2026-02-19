@@ -31,7 +31,7 @@
   var messages = []; // Array of { role, content }
 
   // ── DOM references ──
-  var fabBtn, chatPanel, messagesContainer, inputField, sendBtn, typingIndicator;
+  var fabBtn, chatPanel, messagesContainer, inputField, sendBtn, typingIndicator, tooltip;
 
   // ── Initialize ──
   function init() {
@@ -74,13 +74,28 @@
       '<span class="fab-icon"><i class="xi-chat xi-2x"></i></span>' +
       '<span class="fab-label">AI 상담</span>';
 
-    // 3초 후 라벨 펼침 → 5초 유지 후 접힘
+    // 1.5초 후 라벨 펼침 → 5초 유지 후 접힘
     setTimeout(function () {
       fabBtn.classList.add("expanded");
       setTimeout(function () {
         fabBtn.classList.remove("expanded");
       }, 5000);
     }, 1500);
+
+    // Floating tooltip above FAB
+    tooltip = document.createElement("div");
+    tooltip.className = "sebit-chat-tooltip";
+    tooltip.innerHTML = '<span class="tooltip-icon">🤖</span>AI 챗봇 상담';
+    tooltip.addEventListener("click", function () {
+      toggleChat();
+    });
+    // 2초 후 나타나고 (CSS animation), 7초 후 숨김
+    setTimeout(function () {
+      tooltip.classList.add("visible");
+      setTimeout(function () {
+        tooltip.classList.add("hide");
+      }, 7000);
+    }, 2000);
 
     // Chat panel
     chatPanel = document.createElement("div");
@@ -100,6 +115,7 @@
       "</div>";
 
     document.body.appendChild(fabBtn);
+    document.body.appendChild(tooltip);
     document.body.appendChild(chatPanel);
 
     // Cache references
@@ -129,6 +145,7 @@
     if (isOpen) {
       chatPanel.classList.add("open");
       fabBtn.classList.add("hidden");
+      tooltip.style.display = "none";
       inputField.focus();
       scrollToBottom();
     } else {
