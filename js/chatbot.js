@@ -247,10 +247,14 @@
     saveMessages();
   }
 
-  // URL을 클릭 가능한 링크로 변환 (XSS 방지: 텍스트는 이스케이프 후 URL만 <a> 처리)
+  // 텍스트 내 [상세 문의하기]를 클릭 가능한 링크로 변환 (XSS 방지)
   function linkify(text) {
     var escaped = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    return escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#48c5ff;text-decoration:underline;">$1</a>');
+    // [상세 문의하기] → Contact US 섹션 링크
+    escaped = escaped.replace(/\[상세 문의하기\]/g, '<a href="/#ContactUS" style="color:#48c5ff;text-decoration:underline;cursor:pointer;">상세 문의하기</a>');
+    // 혹시 URL이 노출될 경우 대비
+    escaped = escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#48c5ff;text-decoration:underline;">$1</a>');
+    return escaped;
   }
 
   function createMessageElement(role, text) {
