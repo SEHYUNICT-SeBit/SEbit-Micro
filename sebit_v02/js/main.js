@@ -112,17 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 이메일 도메인 select → input 자동 반영
 document.addEventListener("DOMContentLoaded", () => {
-  const emailForm = document.querySelector(".email_form");
-  if (!emailForm) return;
-
-  const domainSelect = emailForm.querySelector(".form_select");
-  const email2Input = emailForm.querySelector("#email2");
+  const domainSelect = document.getElementById("emailDomain");
+  const email2Input = document.getElementById("email2");
 
   if (domainSelect && email2Input) {
     domainSelect.addEventListener("change", () => {
-      const selected = domainSelect.options[domainSelect.selectedIndex];
-      if (selected && selected.value) {
-        email2Input.value = selected.text;
+      if (domainSelect.value) {
+        email2Input.value = domainSelect.value;
       }
     });
   }

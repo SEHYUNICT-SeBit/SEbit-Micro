@@ -441,6 +441,9 @@ main.sub {background: radial-gradient(circle at 20% -10%, rgba(0, 15, 30, 0.4), 
   align-items: center; padding:40px 20px; border:1px solid #575757; word-break:keep-all;}
 .sc03_pit .sc03_bb .sc03_bb_txt01 {font-size:1.3rem; color:#ff7300; font-weight: bold; padding:10px 0;}
 .sc03_pit .sc03_bb .sc03_bb_txt02 {font-size:1rem; color:#9096b6;}
+.sc03_pit .sc03_bb .sc03_bb_link {margin-top:15px;}
+.sc03_pit .sc03_bb .sc03_bb_link a {color:#ff7300; font-size:0.95rem; text-decoration:none; transition:opacity 0.2s;}
+.sc03_pit .sc03_bb .sc03_bb_link a:hover {opacity:0.7;}
 
 
 .sub_txt01 {font-size:5.8rem; margin:40px 0 20px; font-family: 'GMarketSans'; font-weight: 300; line-height: 6rem;}
@@ -737,5 +740,16 @@ main.sub {background: radial-gradient(circle at 20% -10%, rgba(0, 15, 30, 0.4), 
     .sub_sc02 {width:100%;}
     .sub_sc02 ul li {width:100%; margin:1% 0; height:100%;}
     .sub_txt01 {font-size:3.2rem;}
+
+    /* sub02_04 SEbit AI 페이지 반응형 */
+    .sc03_pit[style*="repeat(5"] {grid-template-columns: repeat(2, 1fr) !important;}
+    .sc03_pit[style*="repeat(2"] {grid-template-columns: 1fr !important;}
+    .sc03_pit {grid-template-columns: 1fr !important; height:auto !important;}
+    .sc03_pit .sc03_bb {padding:25px 15px !important;}
+    .sub_sc03 ul {grid-template-columns: 1fr !important; height:auto !important;}
+    .sub_sc03 ul li {min-height:auto;}
+    .sub_txt03 {margin:80px 0 20px;}
+    .sub_txt03 span {font-size:3rem;}
+    .sub_txt03 strong {font-size:2.8rem;}
 
   }
