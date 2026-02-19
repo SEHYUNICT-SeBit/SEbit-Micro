@@ -7,7 +7,7 @@
     maxMessages: 30,
     sendCooldown: 2000,
     welcomeMessage:
-      "안녕하세요! SEbit AI 상담 챗봇입니다.\n세현ICT의 AI, 모바일, 공간정보 솔루션에 대해 궁금하신 점을 물어보세요.",
+      "안녕하세요! SEbit AI Agen-Talk 챗봇입니다.\n세현ICT의 AI, 모바일, 공간정보 솔루션에 대해 궁금하신 점을 물어보세요.",
     allSuggestions: [
       "SEbit AI가 뭔가요?",
       "LUMO 모바일 플랫폼 소개",
