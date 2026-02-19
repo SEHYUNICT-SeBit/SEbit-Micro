@@ -318,7 +318,7 @@
           handleSend();
         });
         wrap.appendChild(chip);
-      })(CONFIG.suggestions[i]);
+      })(picked[i]);
     }
     messagesContainer.appendChild(wrap);
     scrollToBottom();
