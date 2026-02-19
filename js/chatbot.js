@@ -17,7 +17,7 @@
       "SmartGeoKit 제품군 소개해 주세요",
       "세현ICT는 어떤 회사인가요?",
       "LUMO Push 서비스가 뭔가요?",
-      "Chatbot AI는 어떻게 활용하나요?",
+      "Agen-Talk는 어떤 솔루션인가요?",
       "세현ICT의 주요 사업 영역은?",
     ],
     storageKey: "sebit_chat_history",
