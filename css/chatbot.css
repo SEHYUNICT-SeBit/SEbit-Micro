@@ -20,37 +20,21 @@
   padding: 0 16px;
   overflow: hidden;
   white-space: nowrap;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, transform 0.2s;
 }
 .sebit-chat-fab .fab-icon {
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
+  font-size: 1.3rem;
+  line-height: 1;
 }
 .sebit-chat-fab .fab-label {
   font-size: 0.9rem;
   font-weight: 600;
-  max-width: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-width 0.4s ease, opacity 0.3s ease, margin-left 0.4s ease;
-  margin-left: 0;
-}
-.sebit-chat-fab.expanded .fab-label {
-  max-width: 100px;
-  opacity: 1;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 .sebit-chat-fab:hover {
   box-shadow: 0 6px 24px rgba(72, 197, 255, 0.5);
-}
-.sebit-chat-fab:hover .fab-label {
-  max-width: 100px;
-  opacity: 1;
-  margin-left: 8px;
+  transform: scale(1.05);
 }
 .sebit-chat-fab.hidden {
   display: none;

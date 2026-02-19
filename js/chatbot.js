@@ -71,16 +71,8 @@
     fabBtn.className = "sebit-chat-fab";
     fabBtn.setAttribute("aria-label", "AI 상담 채팅 열기");
     fabBtn.innerHTML =
-      '<span class="fab-icon"><i class="xi-chat xi-2x"></i></span>' +
+      '<span class="fab-icon">🤖</span>' +
       '<span class="fab-label">Agen-Talk</span>';
-
-    // 1.5초 후 라벨 펼침 → 5초 유지 후 접힘
-    setTimeout(function () {
-      fabBtn.classList.add("expanded");
-      setTimeout(function () {
-        fabBtn.classList.remove("expanded");
-      }, 5000);
-    }, 1500);
 
     // Floating tooltip above FAB
     tooltip = document.createElement("div");
