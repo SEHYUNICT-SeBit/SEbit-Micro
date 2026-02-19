@@ -495,6 +495,8 @@ main.sub {background: radial-gradient(circle at 20% -10%, rgba(0, 15, 30, 0.4), 
 .sub03_01_bg {background: url('../img/sub03_01_bg.png') no-repeat center; background-size: cover; padding:100px 0;}
 .sub03_02_bg {background: url('../img/sub03_02_bg.png') no-repeat center; background-size: cover; padding:100px 0;}
 
+.agend-cta {display: inline-block; padding:15px 40px; background:#0035ff; color:#fff; border-radius:30px; font-size:1.2rem; text-decoration:none; margin-top:30px; transition:background-color 0.3s;}
+.agend-cta:hover {background:#002ad4;}
 
 .tabs {
   width: 100%;

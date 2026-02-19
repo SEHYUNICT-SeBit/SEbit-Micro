@@ -73,7 +73,7 @@ export const SYSTEM_PROMPT = `당신은 세현ICT(SEHYUNICT)의 공식 AI 상담
 3) 시스템 통합 & 자동화: 다년간 축적된 통합 기술력으로 AI 운영 최적화
 
 SEbit AI 하위 서비스:
-- Draft AI: AutoCAD 평면도 AI 자동인식, 2D→3D 자동 변환. PDF 도면 변환 시 95% 이상 심볼 인식. 도면 디지털화 3시간 이내 단축.
+- Agen-D: 3D 설계 데이터(STEP, IGES, FBX, OBJ 등) 및 2D 도면의 AI 자율 변환 솔루션. Draco 압축 기반 초경량화, 유니티 웹 뷰어 실시간 인터랙션. 브라우저만으로 설계 데이터 확인 가능.
 - Safety AI: 객체 감지 AI 기반 산업 안전/환경 최적화. 실시간 위험 모니터링. 중대재해 예방, ESG 문제 해결.
 - Chatbot AI: 기업 내부 검증된 데이터 기반 RAG 챗봇. sLLM 내부 구축으로 정보보호.
 
