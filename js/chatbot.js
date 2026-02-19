@@ -252,15 +252,18 @@
     saveMessages();
   }
 
-  // 텍스트 내 [상세 문의하기]를 배지 스타일 링크로 변환 (XSS 방지)
+  var BADGE_HTML = '<div style="margin-top:8px;"><a href="/#ContactUS" style="display:inline-block;background:#48c5ff;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;text-decoration:none;cursor:pointer;">&#x1F4E9; 상세 문의하기</a></div>';
+
+  // 텍스트를 안전한 HTML로 변환 + 모든 봇 답변 끝에 배지 자동 추가
   function linkify(text) {
     var escaped = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    var badgeStyle = "display:inline-block;background:#48c5ff;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;text-decoration:none;cursor:pointer;margin-top:4px;";
-    // [상세 문의하기] → 배지 스타일 링크
-    escaped = escaped.replace(/\[상세 문의하기\]/g, '<a href="/#ContactUS" style="' + badgeStyle + '">&#x1F4E9; 상세 문의하기</a>');
-    // 혹시 URL이 노출될 경우 대비
+    // AI가 출력한 [상세 문의하기] 텍스트 및 관련 안내문 제거 (배지로 대체)
+    escaped = escaped.replace(/추가 문의사항은 \[상세 문의하기\]를 이용해 주세요\.?\s*/g, "");
+    escaped = escaped.replace(/\[상세 문의하기\]/g, "");
+    // URL 노출 대비
     escaped = escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#48c5ff;text-decoration:underline;">$1</a>');
-    return escaped;
+    // 항상 끝에 배지 추가
+    return escaped.trim() + BADGE_HTML;
   }
 
   function createMessageElement(role, text) {
