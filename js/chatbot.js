@@ -209,7 +209,12 @@
           var line = lines[i];
           if (line.indexOf("data: ") === 0) {
             var data = line.slice(6);
-            if (data === "[DONE]") return;
+            if (data === "[DONE]") {
+              if (assistantText) {
+                textEl.innerHTML = linkify(assistantText);
+              }
+              return;
+            }
             try {
               var parsed = JSON.parse(data);
               if (parsed.text) {
@@ -247,11 +252,12 @@
     saveMessages();
   }
 
-  // 텍스트 내 [상세 문의하기]를 클릭 가능한 링크로 변환 (XSS 방지)
+  // 텍스트 내 [상세 문의하기]를 배지 스타일 링크로 변환 (XSS 방지)
   function linkify(text) {
     var escaped = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    // [상세 문의하기] → Contact US 섹션 링크
-    escaped = escaped.replace(/\[상세 문의하기\]/g, '<a href="/#ContactUS" style="color:#48c5ff;text-decoration:underline;cursor:pointer;">상세 문의하기</a>');
+    var badgeStyle = "display:inline-block;background:#48c5ff;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;text-decoration:none;cursor:pointer;margin-top:4px;";
+    // [상세 문의하기] → 배지 스타일 링크
+    escaped = escaped.replace(/\[상세 문의하기\]/g, '<a href="/#ContactUS" style="' + badgeStyle + '">&#x1F4E9; 상세 문의하기</a>');
     // 혹시 URL이 노출될 경우 대비
     escaped = escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#48c5ff;text-decoration:underline;">$1</a>');
     return escaped;
