@@ -10,6 +10,10 @@ desktop.ini
 # Dependencies
 node_modules/
 
+# Cloudflare Workers
+api/.wrangler/
+api/.dev.vars
+
 # bkit internal
 docs/.bkit-memory.json
 docs/.pdca-status.json

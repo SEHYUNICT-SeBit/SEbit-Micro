@@ -606,30 +606,6 @@ main.sub {background: radial-gradient(circle at 20% -10%, rgba(0, 15, 30, 0.4), 
 
 .txt_center {text-align: center !important;}
 
-.quick_faq {padding:1rem 2rem; background: #f0f0f0; opacity: .9; background-size:contain; border-radius: 20px; border:1px solid #c9c9c9; overflow: hidden; position:fixed; bottom:5%; right:5%; z-index: 999;}
-.quick_faq .qf_tit {font-size:1.4rem; color:#000; font-weight: bold;}
-.quick_faq .qf_txt {font-size:0.9rem; color:#222; padding:10px 0 20px; display: inline-block;}
-.quick_faq .qf_btn a {padding:10px 20px; display: inline-block; color:#fff; background: #03186e; border-radius: 30px;}
-/* 닫기 아이콘 스타일 */
-#quickClose {
-  font-size: 20px;
-  cursor: pointer;
-  color: #333;
-  transition: 0.2s;
-  position: absolute;
-  top:22px; right:15px; z-index: 9999;
-}
-
-#quickClose:hover {
-  color: #0b055e;
-  transform: scale(1.1);
-}
-/* 닫힘 효과 */
-.quick_faq.hide {
-  opacity: 0;
-  transform: translateX(120%);
-  pointer-events: none;
-}
 
   /* ===== 반응형 ===== */
   @media (max-width: 960px) {

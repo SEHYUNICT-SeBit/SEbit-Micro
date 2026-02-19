@@ -100,16 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const quickMenu = document.getElementById("quickMenu");
-  const quickClose = document.getElementById("quickClose");
-
-  quickClose.addEventListener("click", () => {
-    quickMenu.classList.add("hide");
-  });
-});
-
-
 // 이메일 도메인 select → input 자동 반영
 document.addEventListener("DOMContentLoaded", () => {
   const domainSelect = document.getElementById("emailDomain");

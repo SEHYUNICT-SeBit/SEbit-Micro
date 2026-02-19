@@ -1,0 +1,228 @@
+/* ===== SEbit AI Chatbot Widget ===== */
+
+/* FAB Button */
+.sebit-chat-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #48c5ff, #0a7cc4);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(72, 197, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sebit-chat-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(72, 197, 255, 0.5);
+}
+.sebit-chat-fab.hidden {
+  display: none;
+}
+
+/* Chat Panel */
+.sebit-chat-panel {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 400px;
+  height: 520px;
+  background: #0a1024;
+  border: 1px solid rgba(72, 197, 255, 0.2);
+  border-radius: 16px;
+  z-index: 1001;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+.sebit-chat-panel.open {
+  display: flex;
+  animation: sebitSlideUp 0.25s ease-out;
+}
+@keyframes sebitSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.sebit-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: rgba(5, 8, 22, 0.95);
+  border-bottom: 1px solid rgba(72, 197, 255, 0.15);
+  flex-shrink: 0;
+}
+.sebit-chat-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #48c5ff;
+}
+.sebit-chat-close {
+  background: none;
+  border: none;
+  color: #9096b6;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+}
+.sebit-chat-close:hover { color: #fff; }
+
+/* Messages Area */
+.sebit-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Message Bubbles */
+.sebit-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  word-break: keep-all;
+  white-space: pre-wrap;
+}
+.sebit-msg.assistant {
+  align-self: flex-start;
+  background: #131832;
+  color: #e4e8ff;
+  border-bottom-left-radius: 4px;
+}
+.sebit-msg.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #48c5ff, #0a7cc4);
+  color: #050816;
+  font-weight: 500;
+  border-bottom-right-radius: 4px;
+}
+
+/* Typing Indicator */
+.sebit-chat-typing {
+  padding: 8px 16px;
+  display: none;
+  gap: 4px;
+  align-items: center;
+}
+.sebit-chat-typing.active {
+  display: flex;
+}
+.sebit-chat-typing span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #48c5ff;
+  animation: sebitBounce 1.2s infinite;
+}
+.sebit-chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.sebit-chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes sebitBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Input Bar */
+.sebit-chat-input-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-top: 1px solid #3d3d3d;
+  background: #050816;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.sebit-chat-input {
+  flex: 1;
+  background: #262626;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #e4e8ff;
+  font-size: 0.9rem;
+  outline: none;
+  font-family: inherit;
+}
+.sebit-chat-input:focus {
+  border-color: #48c5ff;
+}
+.sebit-chat-input::placeholder {
+  color: #6b7194;
+}
+.sebit-chat-send {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #48c5ff;
+  color: #050816;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.sebit-chat-send:hover {
+  background: #5dd4ff;
+}
+.sebit-chat-send:disabled {
+  background: #3d3d3d;
+  cursor: not-allowed;
+}
+
+/* Suggestion Chips */
+.sebit-chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.sebit-chat-chip {
+  background: rgba(72, 197, 255, 0.1);
+  border: 1px solid rgba(72, 197, 255, 0.3);
+  border-radius: 16px;
+  padding: 6px 14px;
+  color: #48c5ff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+.sebit-chat-chip:hover {
+  background: rgba(72, 197, 255, 0.2);
+}
+
+/* Scrollbar */
+.sebit-chat-messages::-webkit-scrollbar { width: 4px; }
+.sebit-chat-messages::-webkit-scrollbar-track { background: transparent; }
+.sebit-chat-messages::-webkit-scrollbar-thumb { background: #3d3d3d; border-radius: 2px; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sebit-chat-panel {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 85vh;
+    border-radius: 16px 16px 0 0;
+  }
+  .sebit-chat-fab {
+    bottom: 16px;
+    right: 16px;
+  }
+}
