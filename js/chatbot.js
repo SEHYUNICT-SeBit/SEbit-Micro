@@ -77,7 +77,7 @@
     // Floating tooltip above FAB
     tooltip = document.createElement("div");
     tooltip.className = "sebit-chat-tooltip";
-    tooltip.innerHTML = '<span class="tooltip-icon">🤖</span>Agen-Talk에게 물어보세요!';
+    tooltip.textContent = "Agen-Talk에게 물어보세요!";
     tooltip.addEventListener("click", function () {
       toggleChat();
     });
@@ -88,6 +88,19 @@
         tooltip.classList.add("hide");
       }, 7000);
     }, 2000);
+
+    // FAB 호버 시 툴팁 다시 표시
+    fabBtn.addEventListener("mouseenter", function () {
+      tooltip.classList.remove("hide");
+      tooltip.style.opacity = "1";
+      tooltip.style.transform = "translateY(0)";
+      tooltip.style.pointerEvents = "auto";
+    });
+    fabBtn.addEventListener("mouseleave", function () {
+      tooltip.style.opacity = "0";
+      tooltip.style.transform = "translateY(8px)";
+      tooltip.style.pointerEvents = "none";
+    });
 
     // Chat panel
     chatPanel = document.createElement("div");
