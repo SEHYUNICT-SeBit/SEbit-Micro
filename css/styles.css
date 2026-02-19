@@ -351,6 +351,23 @@ color: #c3c8e4;
 
 }
 
+.form_con .chk_box input[type="checkbox"]:checked + label:before {
+  background: #0035ff;
+  border-color: #0035ff;
+}
+
+.form_con .chk_box input[type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 .form_con .policy_b {width:100%; margin:30px 0; text-align: center;}
 .form_con .policy_b .policy_btn {padding:15px 70px; display: inline-block; background: #0035ff; border:0; cursor: pointer; transition: background-color 0.3s; font-size: 1.4rem; color:#fff; border-radius: 30px;}
 
