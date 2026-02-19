@@ -6,4 +6,4 @@ compatibility_date = "2025-02-19"
 binding = "AI"
 
 [vars]
-ALLOWED_ORIGINS = "https://sebit-micro-web.pages.dev,http://localhost:3200"
+ALLOWED_ORIGINS = "https://sebit-micro.pages.dev,http://localhost:3200"
