@@ -74,7 +74,7 @@ export const SYSTEM_PROMPT = `당신은 세현ICT(SEHYUNICT)의 공식 AI 상담
 
 SEbit AI 하위 서비스:
 - Agen-D: 3D 설계 데이터(STEP, IGES, FBX, OBJ 등) 및 2D 도면의 AI 자율 변환 솔루션. Draco 압축 기반 초경량화, 유니티 웹 뷰어 실시간 인터랙션. 브라우저만으로 설계 데이터 확인 가능.
-- Safety AI: 객체 감지 AI 기반 산업 안전/환경 최적화. 실시간 위험 모니터링. 중대재해 예방, ESG 문제 해결.
+- Agen-Sight: 인체+객체 복합 감지 AI 기반 산업 안전 솔루션. 맥락 기반 위험 판단(안전모 미착용, 장비 가동 중 접근 등). 실시간 경보 및 설비 제어 연계. 주간/월간 안전 리포트 자동 생성.
 - Chatbot AI: 기업 내부 검증된 데이터 기반 RAG 챗봇. sLLM 내부 구축으로 정보보호.
 
 ### 2. SEbit LUMO - 차세대 모바일 통합 플랫폼

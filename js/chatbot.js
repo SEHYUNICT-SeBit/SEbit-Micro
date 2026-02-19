@@ -13,7 +13,7 @@
       "LUMO 모바일 플랫폼 소개",
       "GeoAxis는 어떤 솔루션인가요?",
       "Agen-D는 어떤 솔루션인가요?",
-      "Safety AI는 어떤 기능이 있나요?",
+      "Agen-Sight는 어떤 기능이 있나요?",
       "SmartGeoKit 제품군 소개해 주세요",
       "세현ICT는 어떤 회사인가요?",
       "LUMO Push 서비스가 뭔가요?",
