@@ -40,7 +40,7 @@
   margin-left: 0;
 }
 .sebit-chat-fab.expanded .fab-label {
-  max-width: 80px;
+  max-width: 100px;
   opacity: 1;
   margin-left: 8px;
 }
@@ -48,7 +48,7 @@
   box-shadow: 0 6px 24px rgba(72, 197, 255, 0.5);
 }
 .sebit-chat-fab:hover .fab-label {
-  max-width: 80px;
+  max-width: 100px;
   opacity: 1;
   margin-left: 8px;
 }

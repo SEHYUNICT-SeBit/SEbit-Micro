@@ -72,7 +72,7 @@
     fabBtn.setAttribute("aria-label", "AI 상담 채팅 열기");
     fabBtn.innerHTML =
       '<span class="fab-icon"><i class="xi-chat xi-2x"></i></span>' +
-      '<span class="fab-label">AI 상담</span>';
+      '<span class="fab-label">Agen-Talk</span>';
 
     // 1.5초 후 라벨 펼침 → 5초 유지 후 접힘
     setTimeout(function () {
@@ -85,7 +85,7 @@
     // Floating tooltip above FAB
     tooltip = document.createElement("div");
     tooltip.className = "sebit-chat-tooltip";
-    tooltip.innerHTML = '<span class="tooltip-icon">🤖</span>AI 챗봇 상담';
+    tooltip.innerHTML = '<span class="tooltip-icon">🤖</span>Agen-Talk에게 물어보세요!';
     tooltip.addEventListener("click", function () {
       toggleChat();
     });
@@ -102,7 +102,7 @@
     chatPanel.className = "sebit-chat-panel";
     chatPanel.innerHTML =
       '<div class="sebit-chat-header">' +
-      '  <span class="sebit-chat-title">SEbit AI 상담</span>' +
+      '  <span class="sebit-chat-title">Agen-Talk AI 상담</span>' +
       '  <button class="sebit-chat-close" aria-label="닫기"><i class="xi-close"></i></button>' +
       "</div>" +
       '<div class="sebit-chat-messages"></div>' +
