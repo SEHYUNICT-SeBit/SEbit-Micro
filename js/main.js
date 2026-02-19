@@ -179,16 +179,58 @@ function submitContactForm() {
     return;
   }
 
-  // 검증 통과
-  alert("문의가 접수되었습니다. 감사합니다!\n빠른 시일 내에 답변 드리겠습니다.");
+  // 문의유형 라벨 매핑
+  var typeLabels = { "1": "SEbit AI 문의", "2": "SEbit LUMO 문의", "3": "SEbit GeoNexus 문의", "4": "기타 문의" };
+  var typeLabel = typeLabels[type1.value] || "문의";
+  var fullEmail = email.value.trim() + "@" + email2.value.trim();
 
-  // 폼 초기화
-  if (type1) type1.selectedIndex = 0;
-  if (data1) data1.value = "";
-  if (name) name.value = "";
-  if (email) email.value = "";
-  if (email2) email2.value = "";
-  if (tel) tel.value = "";
-  if (content) content.value = "";
-  if (consent) consent.checked = false;
+  // 전송 버튼 비활성화
+  var submitBtn = document.querySelector(".policy_btn");
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "전송 중...";
+  }
+
+  // FormSubmit.co AJAX 전송 → hjkim@sehyunict.com
+  fetch("https://formsubmit.co/ajax/hjkim@sehyunict.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      _subject: "[SEbit Micro] " + typeLabel,
+      _template: "table",
+      _captcha: "false",
+      "문의유형": typeLabel,
+      "회사명": data1.value.trim(),
+      "이름": name.value.trim(),
+      "이메일": fullEmail,
+      "전화번호": tel.value.trim(),
+      "문의내용": content.value.trim()
+    })
+  })
+  .then(function (res) { return res.json(); })
+  .then(function (data) {
+    if (data.success) {
+      alert("문의가 접수되었습니다. 감사합니다!\n빠른 시일 내에 답변 드리겠습니다.");
+      // 폼 초기화
+      type1.selectedIndex = 0;
+      data1.value = "";
+      name.value = "";
+      email.value = "";
+      email2.value = "";
+      tel.value = "";
+      content.value = "";
+      consent.checked = false;
+    } else {
+      alert("전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+    }
+  })
+  .catch(function () {
+    alert("전송 중 오류가 발생했습니다.\n직접 문의: 070-4047-8955 또는 hjkim@sehyunict.com");
+  })
+  .finally(function () {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "문의하기";
+    }
+  });
 }
