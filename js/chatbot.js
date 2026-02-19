@@ -192,10 +192,11 @@
     function read() {
       return reader.read().then(function (result) {
         if (result.done) {
-          // Save final message
+          // Save final message + URL을 클릭 가능 링크로 변환
           if (assistantText) {
             messages.push({ role: "assistant", content: assistantText });
             saveMessages();
+            textEl.innerHTML = linkify(assistantText);
           }
           return;
         }
@@ -246,12 +247,22 @@
     saveMessages();
   }
 
+  // URL을 클릭 가능한 링크로 변환 (XSS 방지: 텍스트는 이스케이프 후 URL만 <a> 처리)
+  function linkify(text) {
+    var escaped = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#48c5ff;text-decoration:underline;">$1</a>');
+  }
+
   function createMessageElement(role, text) {
     var div = document.createElement("div");
     div.className = "sebit-msg " + role;
     var span = document.createElement("span");
     span.className = "sebit-msg-text";
-    span.textContent = text;
+    if (role === "assistant") {
+      span.innerHTML = linkify(text);
+    } else {
+      span.textContent = text;
+    }
     div.appendChild(span);
     return div;
   }
