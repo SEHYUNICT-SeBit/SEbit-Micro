@@ -8,10 +8,17 @@
     sendCooldown: 2000,
     welcomeMessage:
       "안녕하세요! SEbit AI 상담 챗봇입니다.\n세현ICT의 AI, 모바일, 공간정보 솔루션에 대해 궁금하신 점을 물어보세요.",
-    suggestions: [
+    allSuggestions: [
       "SEbit AI가 뭔가요?",
       "LUMO 모바일 플랫폼 소개",
-      "도입 상담을 받고 싶어요",
+      "GeoAxis는 어떤 솔루션인가요?",
+      "Draft AI로 도면 변환이 가능한가요?",
+      "Safety AI는 어떤 기능이 있나요?",
+      "SmartGeoKit 제품군 소개해 주세요",
+      "세현ICT는 어떤 회사인가요?",
+      "LUMO Push 서비스가 뭔가요?",
+      "Chatbot AI는 어떻게 활용하나요?",
+      "세현ICT의 주요 사업 영역은?",
     ],
     storageKey: "sebit_chat_history",
     countKey: "sebit_chat_count",
@@ -291,9 +298,16 @@
   }
 
   function showSuggestions() {
+    // 10개 중 랜덤 3개 선택
+    var pool = CONFIG.allSuggestions.slice();
+    var picked = [];
+    for (var j = 0; j < 3 && pool.length > 0; j++) {
+      var idx = Math.floor(Math.random() * pool.length);
+      picked.push(pool.splice(idx, 1)[0]);
+    }
     var wrap = document.createElement("div");
     wrap.className = "sebit-chat-suggestions";
-    for (var i = 0; i < CONFIG.suggestions.length; i++) {
+    for (var i = 0; i < picked.length; i++) {
       (function (text) {
         var chip = document.createElement("button");
         chip.className = "sebit-chat-chip";
