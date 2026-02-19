@@ -5,9 +5,8 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 56px;
   height: 56px;
-  border-radius: 50%;
+  border-radius: 28px;
   background: linear-gradient(135deg, #48c5ff, #0a7cc4);
   color: #fff;
   border: none;
@@ -17,14 +16,60 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  gap: 0;
+  padding: 0 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: box-shadow 0.3s;
+}
+.sebit-chat-fab .fab-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+.sebit-chat-fab .fab-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.4s ease, opacity 0.3s ease, margin-left 0.4s ease;
+  margin-left: 0;
+}
+.sebit-chat-fab.expanded .fab-label {
+  max-width: 80px;
+  opacity: 1;
+  margin-left: 8px;
 }
 .sebit-chat-fab:hover {
-  transform: scale(1.08);
   box-shadow: 0 6px 24px rgba(72, 197, 255, 0.5);
+}
+.sebit-chat-fab:hover .fab-label {
+  max-width: 80px;
+  opacity: 1;
+  margin-left: 8px;
 }
 .sebit-chat-fab.hidden {
   display: none;
+}
+
+/* Pulse Animation */
+.sebit-chat-fab::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 28px;
+  background: rgba(72, 197, 255, 0.4);
+  animation: sebitPulse 2s ease-out infinite;
+  z-index: -1;
+}
+@keyframes sebitPulse {
+  0%   { transform: scale(1); opacity: 0.6; }
+  70%  { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
 }
 
 /* Chat Panel */
@@ -224,5 +269,8 @@
   .sebit-chat-fab {
     bottom: 16px;
     right: 16px;
+  }
+  .sebit-chat-fab::before {
+    border-radius: 28px;
   }
 }

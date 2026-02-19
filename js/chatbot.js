@@ -70,7 +70,17 @@
     fabBtn = document.createElement("button");
     fabBtn.className = "sebit-chat-fab";
     fabBtn.setAttribute("aria-label", "AI 상담 채팅 열기");
-    fabBtn.innerHTML = '<i class="xi-chat xi-2x"></i>';
+    fabBtn.innerHTML =
+      '<span class="fab-icon"><i class="xi-chat xi-2x"></i></span>' +
+      '<span class="fab-label">AI 상담</span>';
+
+    // 3초 후 라벨 펼침 → 5초 유지 후 접힘
+    setTimeout(function () {
+      fabBtn.classList.add("expanded");
+      setTimeout(function () {
+        fabBtn.classList.remove("expanded");
+      }, 5000);
+    }, 1500);
 
     // Chat panel
     chatPanel = document.createElement("div");
