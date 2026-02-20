@@ -1,10 +1,11 @@
 # Old .html URLs → Clean URLs (301 permanent redirects)
 /sub.html /brand-story 301
 /sub01.html /lumo 301
-/sub02_01.html /ai/agen-sight 301
-/sub02_02.html /ai/agen-d 301
-/sub02_03.html /ai/agen-talk 301
-/sub02_04.html /ai 301
+/sub02.html /sebitai/usecase 301
+/sub02_01.html /sebitai/agen-sight 301
+/sub02_02.html /sebitai/agen-d 301
+/sub02_03.html /sebitai/agen-talk 301
+/sub02_04.html /sebitai 301
 /sub03.html /lumo/mobile 301
 /sub03_01.html /lumo/push 301
 /sub04.html /geoaxis 301
@@ -15,3 +16,9 @@
 /sub04_05.html /geoaxis/xler 301
 /sub04_06.html /geoaxis/ar 301
 /sub04_07.html /geoaxis/rmcp 301
+
+# Old /ai paths → /sebitai (for existing bookmarks/links)
+/ai /sebitai 301
+/ai/agen-d /sebitai/agen-d 301
+/ai/agen-sight /sebitai/agen-sight 301
+/ai/agen-talk /sebitai/agen-talk 301
