@@ -279,6 +279,13 @@
         }
 
         return read();
+      }).catch(function () {
+        // 스트림 읽기 실패 시 현재까지 수신된 텍스트 저장
+        if (assistantText) {
+          messages.push({ role: "assistant", content: assistantText });
+          saveMessages();
+          textEl.innerHTML = linkify(assistantText);
+        }
       });
     }
 

@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const topBtn = document.getElementById("topBtn");
+  if (!topBtn) return;
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > window.innerHeight * 1) {
