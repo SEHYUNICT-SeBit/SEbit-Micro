@@ -1,0 +1,17 @@
+# Old .html URLs → Clean URLs (301 permanent redirects)
+/sub.html /brand-story 301
+/sub01.html /lumo 301
+/sub02_01.html /ai/agen-sight 301
+/sub02_02.html /ai/agen-d 301
+/sub02_03.html /ai/agen-talk 301
+/sub02_04.html /ai 301
+/sub03.html /lumo/mobile 301
+/sub03_01.html /lumo/push 301
+/sub04.html /geoaxis 301
+/sub04_01.html /geoaxis/3d-gis 301
+/sub04_02.html /geoaxis/cad-view 301
+/sub04_03.html /geoaxis/cad-compare 301
+/sub04_04.html /geoaxis/layout-manager 301
+/sub04_05.html /geoaxis/xler 301
+/sub04_06.html /geoaxis/ar 301
+/sub04_07.html /geoaxis/rmcp 301
